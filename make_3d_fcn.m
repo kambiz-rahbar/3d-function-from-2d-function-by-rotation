@@ -21,6 +21,9 @@ Rx = Rotated_X(1,:);
 Ry = Rotated_X(2,:);
 Rz = Rotated_X(3,:);
 
+Rz_scale = sin(0:pi/length(Rz)+eps:pi);
+Rz = Rz .* Rz_scale;
+
 [XX, YY] = meshgrid(-1:0.01:1, -1:0.01:1);
 ZZ = griddata(Rx, Ry, Rz, XX, YY);
 
